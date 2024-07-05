@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 * {
   margin: 0;
   padding: 0;
@@ -99,4 +99,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* =============================
+==========about us============= */
+.bout{
+  font-family: "PT Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* =============================
+==========privacy policy============= */
+.bd-pri{
+  font-family: "PT Sans", sans-serif;
+  margin: 20px;
+  line-height: 1.6;
+}
+
+.h1-pol{
+  text-align: center;
+}
+.ul-pol{
+  list-style-type: none;
+  padding: 0;
+}
+.li-pol{
+  margin-bottom: 10px;
 }
