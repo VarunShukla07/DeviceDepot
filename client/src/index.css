@@ -127,3 +127,16 @@
 .li-pol{
   margin-bottom: 10px;
 }
+
+.card {
+  height: 24rem; /* Ensure all cards have the same height */
+}
+
+.card-img-top {
+  height: 10rem; /* Set a fixed height for the image */
+  object-fit: cover; /* Ensure the image covers the designated area */
+}
+
+.product-link {
+  flex: 1 1 18rem; /* Ensure cards take up equal space and wrap correctly */
+}
