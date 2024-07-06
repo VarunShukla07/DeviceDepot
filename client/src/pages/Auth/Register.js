@@ -3,7 +3,7 @@ import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
-import "../styles/AuthStyles.css";
+import "../../styles/AuthStyles.css";
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -17,7 +17,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-        const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`, {
+      const res = await axios.post("/api/v1/auth/register", {
         name,
         email,
         password,
@@ -39,7 +39,7 @@ const Register = () => {
 
   return (
     <Layout title="Register - Ecommer App">
-      <div className="form-container ">
+      <div className="form-container" style={{ minHeight: "90vh" }}>
         <form onSubmit={handleSubmit}>
           <h4 className="title">REGISTER FORM</h4>
           <div className="mb-3">
