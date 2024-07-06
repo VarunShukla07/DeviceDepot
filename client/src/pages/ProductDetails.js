@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "./../components/Layout/Layout";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 import "../styles/ProductDetailsStyles.css";
 
 const ProductDetails = () => {
@@ -9,12 +10,14 @@ const ProductDetails = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const [cart, setCart] = useState([]);
 
-  //initalp details
+  // Initial details
   useEffect(() => {
     if (params?.slug) getProduct();
   }, [params?.slug]);
-  //getProduct
+
+  // Get Product details
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
@@ -26,7 +29,8 @@ const ProductDetails = () => {
       console.log(error);
     }
   };
-  //get similar product
+
+  // Get similar products
   const getSimilarProduct = async (pid, cid) => {
     try {
       const { data } = await axios.get(
@@ -37,6 +41,14 @@ const ProductDetails = () => {
       console.log(error);
     }
   };
+
+  // Add to Cart function
+  const addToCart = () => {
+    setCart([...cart, product]);
+    localStorage.setItem("cart", JSON.stringify([...cart, product]));
+    toast.success("Item Added to cart");
+  };
+
   return (
     <Layout>
       <div className="row container product-details">
@@ -62,7 +74,9 @@ const ProductDetails = () => {
             })}
           </h6>
           <h6>Category : {product?.category?.name}</h6>
-          <button class="btn btn-secondary ms-1">ADD TO CART</button>
+          <button className="btn btn-secondary ms-1" onClick={addToCart}>
+            ADD TO CART
+          </button>
         </div>
       </div>
       <hr />
@@ -89,9 +103,7 @@ const ProductDetails = () => {
                     })}
                   </h5>
                 </div>
-                <p className="card-text ">
-                  {p.description.substring(0, 60)}...
-                </p>
+                <p className="card-text ">{p.description.substring(0, 60)}...</p>
                 <div className="card-name-price">
                   <button
                     className="btn btn-info ms-1"
@@ -99,19 +111,6 @@ const ProductDetails = () => {
                   >
                     More Details
                   </button>
-                  {/* <button
-                  className="btn btn-dark ms-1"
-                  onClick={() => {
-                    setCart([...cart, p]);
-                    localStorage.setItem(
-                      "cart",
-                      JSON.stringify([...cart, p])
-                    );
-                    toast.success("Item Added to cart");
-                  }}
-                >
-                  ADD TO CART
-                </button> */}
                 </div>
               </div>
             </div>
