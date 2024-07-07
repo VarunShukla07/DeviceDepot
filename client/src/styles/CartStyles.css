@@ -27,3 +27,27 @@
   text-align: center;
   /* margin-top: -140px !important; */
 }
+.custom-button {
+  background-color: #77E4C8;
+  border: none;
+  color: white;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #B1AFFF;
+  transform: scale(1.1);
+}
+.paym-button {
+  background-color: #D6589F;
+  border: none;
+  color: white;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.paym-button:hover {
+  background-color: #D20062;
+  color: white;
+  transform: scale(0.8);
+}
+

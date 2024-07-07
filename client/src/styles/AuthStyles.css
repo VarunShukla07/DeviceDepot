@@ -1,5 +1,3 @@
-/* ===================================
-========= register page  */
 .form-container {
   margin-top: 60px;
   display: flex;
@@ -7,14 +5,16 @@
   justify-content: center;
   min-height: 70vh;
   flex-direction: column;
-  background-color: #ffdee9;
-  background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
+  background-image: url('../../public/images/background.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .form-container form {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 20px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8); /* Slight transparency to make the form stand out */
 }
 
 .form-container form .title {
@@ -53,11 +53,15 @@
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.forgot-btn {
-  background-color: #434343a4 !important;
-  border: 0 !important;
+.form-container form button, .forgot-btn {
+  background-color: #FFF455;
+  color: #891652;
+  transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
 }
 
-.forgot-btn:hover {
-  color: white !important;
+.form-container form button:hover, .forgot-btn:hover {
+  background-color: #7F27FF;
+  color: #F6F5F5;
+  transform: scale(1.1);
 }
+

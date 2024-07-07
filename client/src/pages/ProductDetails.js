@@ -12,6 +12,12 @@ const ProductDetails = () => {
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
+  // Load cart from local storage on mount
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(storedCart);
+  }, []);
+
   // Initial details
   useEffect(() => {
     if (params?.slug) getProduct();
@@ -44,8 +50,9 @@ const ProductDetails = () => {
 
   // Add to Cart function
   const addToCart = () => {
-    setCart([...cart, product]);
-    localStorage.setItem("cart", JSON.stringify([...cart, product]));
+    const newCart = [...cart, product];
+    setCart(newCart);
+    localStorage.setItem("cart", JSON.stringify(newCart));
     toast.success("Item Added to cart");
   };
 

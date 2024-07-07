@@ -88,9 +88,8 @@ const CartPage = () => {
                 : `Hello  ${auth?.token && auth?.user?.name}`}
               <p className="text-center">
                 {cart?.length
-                  ? `You Have ${cart.length} items in your cart ${
-                      auth?.token ? "" : "please login to checkout !"
-                    }`
+                  ? `You Have ${cart.length} items in your cart ${auth?.token ? "" : "please login to checkout !"
+                  }`
                   : " Your Cart Is Empty"}
               </p>
             </h1>
@@ -117,7 +116,7 @@ const CartPage = () => {
                   </div>
                   <div className="col-md-4 cart-remove-btn">
                     <button
-                      className="btn btn-danger"
+                      className="btn custom-button"
                       onClick={() => removeCartItem(p._id)}
                     >
                       Remove
@@ -137,7 +136,7 @@ const CartPage = () => {
                     <h4>Current Address</h4>
                     <h5>{auth?.user?.address}</h5>
                     <button
-                      className="btn btn-outline-warning"
+                      className="btn custom-button"
                       onClick={() => navigate("/dashboard/user/profile")}
                     >
                       Update Address
@@ -148,24 +147,25 @@ const CartPage = () => {
                 <div className="mb-3">
                   {auth?.token ? (
                     <button
-                      className="btn btn-outline-warning"
+                      className="btn custom-button"
                       onClick={() => navigate("/dashboard/user/profile")}
                     >
                       Update Address
                     </button>
                   ) : (
                     <button
-                      className="btn btn-outline-warning"
+                      className="btn custom-button"
                       onClick={() =>
                         navigate("/login", {
                           state: "/cart",
                         })
                       }
                     >
-                      Plase Login to checkout
+                      Please Login to checkout
                     </button>
                   )}
                 </div>
+
               )}
               <div className="mt-2">
                 {!clientToken || !auth?.token || !cart?.length ? (
@@ -183,7 +183,7 @@ const CartPage = () => {
                     />
 
                     <button
-                      className="btn btn-primary"
+                      className="btn paym-button"
                       onClick={handlePayment}
                       disabled={loading || !instance || !auth?.user?.address}
                     >
